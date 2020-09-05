@@ -1,0 +1,83 @@
+.social {
+	margin-bottom: 30px;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+}
+
+.social-link-item:not(:last-child) {
+	margin-right: 10px;
+}
+
+.social-item {
+	fill: #afb1b8;
+	transition: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	background-color: $white-color;
+	border-radius: 50%;
+	transition: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	&:hover,
+	&:focus {
+		background-color: $accent-color;
+	}
+
+	&:hover .social-item,
+	&:focus .social-item {
+		fill: $white-color;
+	}
+}
+
+// Социальные сети подвал
+
+.footer .social-link-item {
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.social-footer {
+	margin-bottom: 30px;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+	justify-content: center;
+}
+
+.social-link-item-footer:not(:last-child) {
+	margin-right: 10px;
+}
+
+.social-link-footer {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 44px;
+	height: 44px;
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 50%;
+	transition: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	&:hover,
+	&:focus {
+		background-color: $accent-color;
+	}
+	&:hover .social-item-footer,
+	&:focus .social-item-footer {
+		fill: $white-color;
+	}
+}
+
+.social-item-footer {
+	fill: $white-color;
+	transition: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
