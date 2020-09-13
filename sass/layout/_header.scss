@@ -1,126 +1,158 @@
 .page-header {
-	padding: 25px 0px;
-	border-bottom: #ececec solid 1px;
-}
-
-.navigation {
-	display: flex;
-	align-items: center;
-	margin-right: auto;
-}
-
-.navigation > .logo {
-	margin-right: 85px;
-}
-
-.menu-list {
-	display: flex;
-	list-style-type: none;
-}
-
-.menu-item:not(:last-child) {
-	margin-right: 50px;
-}
-
-.menu-link {
+	border: 1px solid #ececec;
+	border-left: none;
+	border-right: none;
+	border-top: none;
 	position: relative;
-	padding: 32px 0;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 1.142;
-	letter-spacing: 0.02em;
-	text-decoration: none;
-	color: $main-color;
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-	&:hover,
-	&:focus {
-		color: $accent-color;
+.main-header {
+	display: flex;
+
+	@media screen and (max-width: 767px) {
+		align-items: center;
+		justify-content: space-between;
+		min-height: 60px;
+	}
+
+	@media screen and (min-width: 768px) {
+		justify-content: space-between;
+		align-items: center;
 	}
 }
 
-.menu-item .menu-link.current {
-	color: $accent-color;
+.menu-navigation {
+	z-index: 1;
+	@media screen and (max-width: 767px) {
+		display: none;
+
+		padding-top: 60px;
+		background-color: $primary-white-color;
+
+		box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 1px 3px rgba(0, 0, 0, 0.16);
+
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+
+		&.is-open {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		display: flex;
+		align-items: center;
+	}
 }
 
-.current::before {
-	position: absolute;
-	content: "";
-	bottom: 0;
-	width: 100%;
-	height: 4px;
-	border-radius: 2px;
-	background-color: $accent-color;
-}
-
-.flexbox {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.contacts-header {
-	display: flex;
-	align-items: center;
+.site-nav {
 	margin-left: auto;
-}
 
-.contacts-mail {
-	display: flex;
-	align-items: center;
-	margin-right: 30px;
-	text-decoration: none;
-	color: #757575;
-	fill: #757575;
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	&:focus,
-	&:hover {
-		color: $accent-color;
-		fill: $accent-color;
-	}
-}
-
-.icon-mail {
-	margin-right: 10px;
-}
-
-.mailtext {
-	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 1.14;
 	letter-spacing: 0.02em;
-}
 
-.contacts-tel {
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	color: $text-color;
-	fill: $text-color;
-	transition: 250ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	@media screen and (max-width: 767px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
-	&:focus,
-	&:hover {
-		color: $accent-color;
-		fill: $accent-color;
+	@media screen and (min-width: 768px) {
+		display: flex;
+		align-items: center;
+	}
+
+	@include for-size(desktop) {
+		margin-right: 305px;
 	}
 }
 
-.icon-tel {
-	margin-right: 10px;
+.site-nav {
+	& .menu {
+		@media screen and (max-width: 767px) {
+			margin-bottom: 52px;
+		}
+
+		@media screen and (min-width: 768px) {
+			margin-left: 50px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		.link {
+			font-family: Roboto;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 1.14;
+			letter-spacing: 0.02em;
+
+			position: relative;
+
+			color: $first-title-text-color;
+			transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+			@media screen and (min-width: 768px) {
+				padding: 32px 0;
+				font-size: 14px;
+			}
+
+			&:hover,
+			&:focus {
+				color: $accent-color;
+			}
+		}
+	}
 }
 
-.teltext {
-	font-style: normal;
+.site-nav {
+	.link {
+		&.current::after {
+			content: "";
+			position: absolute;
 
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 1.14;
-	letter-spacing: 0.02em;
+			display: block;
+			width: 100%;
+			height: 4px;
+			left: 0;
+			bottom: -8px;
+
+			border-radius: 2px;
+			background-color: $accent-color;
+
+			@media screen and (min-width: 768px) {
+				bottom: -2px;
+			}
+
+			@include for-size(desktop) {
+				bottom: -1px;
+			}
+		}
+		&.current {
+			color: $accent-color;
+		}
+	}
+}
+
+.auth-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media screen and (min-width: 768px) {
+		margin-left: 84px;
+		margin-top: 21px;
+		margin-bottom: 21px;
+		align-items: flex-start;
+	}
+	@include for-size(desktop) {
+		flex-direction: row;
+		margin: 0;
+	}
 }
